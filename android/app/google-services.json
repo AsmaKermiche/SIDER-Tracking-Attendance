@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "309479609411",
+    "project_id": "sidergeo-3c3ea",
+    "storage_bucket": "sidergeo-3c3ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309479609411:android:4e04844203cdf0ba5530f6",
+        "android_client_info": {
+          "package_name": "com.example.stage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309479609411-gfr01q9vij0gl9ocv4ik5ti28k0oul0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLu_dPXM-olNnvRcRDeDEj8jVkI5Dwnu0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309479609411-gfr01q9vij0gl9ocv4ik5ti28k0oul0b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
