@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:stage/Screens/Home_Screen.dart';
+import 'package:stage/Screens/Presence_Screen.dart';
 import 'package:stage/Screens/Register_Screen.dart';
+
+import 'Screens/iidep.dart';
 
 
 void main() async{
@@ -16,7 +19,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SignupScreen(),
+      home: IDDEP(),
+      //home: SignupScreen(),
+
     );
   }
 }

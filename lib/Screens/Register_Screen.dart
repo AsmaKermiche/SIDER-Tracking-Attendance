@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:stage/Component/button.dart';
 import 'package:http/http.dart' as http;
 import 'package:stage/Screens/Home_Screen.dart';
+import 'package:stage/Screens/Presence_Screen.dart';
 
 import '../constants.dart';
 import 'Login_Screen.dart';
@@ -25,40 +26,6 @@ class _SignupScreenState extends State<SignupScreen> {
   String? _chosenValue;
   int? _depId;
   bool isloading = false;
-  Widget _loginAccountLabel() {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-           context, MaterialPageRoute(builder: (context) => LoginScreen())
-           );
-
-      },
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10),
-        padding: EdgeInsets.all(10),
-        alignment: Alignment.bottomCenter,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Vous avez deja un compte?',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w200),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              'Login',
-              style: TextStyle(
-                  color: red,
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
 
   Future register() async {
@@ -88,31 +55,17 @@ class _SignupScreenState extends State<SignupScreen> {
       );
     } else {
       print("hiii");
-      Navigator.push(
+     /* Navigator.push(
           context,
-          MaterialPageRoute(
-            builder: (context) => HomePage(
-              id: _depId,
+          MaterialPageRoute(builder: (context) => PresenceScreen(matricule: matricule.text ,iddep: _depId
             ),
-          ));
+          ));*/
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-            size: 30,
-          ),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ),*/
       body: isloading
           ? Center(
               child: CircularProgressIndicator(),
@@ -128,7 +81,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       width: MediaQuery.of(context).size.width,
                       color: Colors.white,
                       child: SingleChildScrollView(
-                        padding: EdgeInsets.symmetric(horizontal: 26, vertical: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 26, vertical: 20),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -155,7 +108,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   ? ' SVP entrez votre numéro de téléphone!'
                                   : null,
                               decoration: kTextFieldDecoration.copyWith(
-                                hintText: 'Entrez votre nom',
+                                hintText: 'Nom complet',
                                 prefixIcon: Icon(
                                   Icons.person,
                                   color: red,
@@ -173,7 +126,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   ? ' SVP entrez votre numéro de téléphone!'
                                   : null,
                               decoration: kTextFieldDecoration.copyWith(
-                                hintText: 'Entrez votre numéro de téléphone',
+                                hintText: 'Numéro de téléphone',
                                 prefixIcon: Icon(
                                   Icons.phone,
                                   color: red,
@@ -190,7 +143,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               },
                               controller: password,
                               decoration: kTextFieldDecoration.copyWith(
-                                  hintText: 'Entrez un mot de passe',
+                                  hintText: 'Mot de passe',
                                   prefixIcon: Icon(
                                     Icons.lock,
                                     color: red,
@@ -205,7 +158,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               },
                               controller: matricule,
                               decoration: kTextFieldDecoration.copyWith(
-                                  hintText: 'Entrez votre matricule',
+                                  hintText: 'Matricule',
                                   prefixIcon: Icon(
                                     Icons.vpn_key,
                                     color: red,
@@ -250,7 +203,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                     ),
                                     Container(
                                       child: Text(
-                                        'Choisir votre département SVP!',
+                                        'Choisir votre département',
                                         style: TextStyle(color: Colors.black),
                                       ),
                                     ),
@@ -273,7 +226,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 },
                               ),
                             ),
-                            SizedBox(height: 48),
+                            SizedBox(height: 40),
                             Container(
                               width: 250,
                                 height: 50,
@@ -287,7 +240,36 @@ class _SignupScreenState extends State<SignupScreen> {
                                   style: TextStyle(fontSize: 20)),
                               onPressed: register,
                             )),
-                            _loginAccountLabel(),
+                            SizedBox(height: 20),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginScreen(),
+                                  ),
+                                );
+                              },
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "Vous avez déjà un compte?",
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.black87),
+                                  ),
+                                  SizedBox(width: 4),
+                                  Hero(
+                                    tag: '2',
+                                    child: Text(
+                                      'Se connecter',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                           ],
                         ),),
 
