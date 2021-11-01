@@ -54,7 +54,7 @@ class _IDDEPState extends State<IDDEP> {
                   style: TextStyle(fontSize: 20)),
               onPressed: () {
                 iddep = int.parse(phonenumber.text);
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>PresenceScreen(iddep: iddep),),);
+              //  Navigator.push(context, MaterialPageRoute(builder: (context)=>PresenceScreen(iddep: iddep),),);
               },
 
             )),])

@@ -8,11 +8,11 @@ import 'package:stage/Screens/Home_Screen.dart';
 import '../constants.dart';
 
 class PresenceScreen extends StatefulWidget {
- /* const PresenceScreen({Key? key,required this.matricule ,required this.iddep}) : super(key: key);
+  const PresenceScreen({Key? key,required this.matricule ,required this.iddep}) : super(key: key);
   final int? iddep;
-  final String? matricule;*/
- const PresenceScreen({Key? key,required this.iddep}) : super(key: key);
-  final int? iddep;
+  final String? matricule;
+ /*const PresenceScreen({Key? key,required this.iddep}) : super(key: key);
+  final int? iddep;*/
 
   @override
   _PresenceScreenState createState() => _PresenceScreenState();
@@ -72,12 +72,7 @@ class _PresenceScreenState extends State<PresenceScreen> {
                     child: Text("Considère-moi présent",
                         style: TextStyle(fontSize: 20)),
                     onPressed: () {
-                     /* Navigator.push(context, MaterialPageRoute(
-                        builder: (context) =>
-                            HomePage(matricule: widget.matricule,
-                              iddep: widget.iddep,),),);*/
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(iddep: widget.iddep, ),),);
-                      //Navigator.push(context, MaterialPageRoute(builder: (context)=>CalendarPage(matricule: widget.matricule ),),);
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage(matricule: widget.matricule,iddep: widget.iddep, ),),);
 
                     },
                   )),

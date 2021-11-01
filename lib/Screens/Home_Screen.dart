@@ -16,13 +16,10 @@ import '../constants.dart';
 import 'Calendar_Screen.dart';
 
 class HomePage extends StatefulWidget {
- /* final int? iddep;
+  final int? iddep;
   final String? matricule;
 
-  const HomePage({Key? key,required this.matricule, required this.iddep})
-      : super(key: key);*/
-  final int? iddep;
-  const HomePage({Key? key, required this.iddep})
+ const HomePage({Key? key,required this.matricule, required this.iddep})
       : super(key: key);
 
   @override
@@ -77,9 +74,9 @@ class _HomePageState extends State<HomePage> {
         });
   }
   Future registerPresence() async {
-    var url = "http://192.168.1.10/flutter_login_signup/pointage.php";
+    var url = "http://192.168.1.8/flutter_login_signup/pointage.php";
     var response = await http.post(Uri.parse(url), body: {
-     // "matricule": widget.matricule,
+      "matricule": widget.matricule,
       "date": date,
       "status": status.toString(),
     });
@@ -94,17 +91,7 @@ class _HomePageState extends State<HomePage> {
     final position = await _geolocatorPlatform.getCurrentPosition();
     myLat = position.latitude.toDouble();
     myLong = position.longitude.toDouble();
-   // fetchLatLong();
-    if(widget.iddep == 1){
-      depLat = 36.7930172;
-      depLong = 7.6928433;
-    } else if (widget.iddep == 2) {
-    depLat = 36.7935438;
-    depLong = 7.694337;
-    } else if(widget.iddep == 3){
-      depLat = 36.7960106;
-      depLong = 7.6946636;
-    }
+    fetchLatLong();
     double p = 0.017453292519943295;
     double a = 0.5 -
         cos((depLat - myLat) * p) / 2 +
@@ -116,7 +103,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> fetchLatLong() async {
-    var url = "http://192.168.1.10/flutter_login_signup/latlong.php";
+    var url = "http://192.168.1.8/flutter_login_signup/latlong.php";
 print(widget.iddep);
     var data = {'iddep': int.parse(widget.iddep.toString())};
 
@@ -270,7 +257,7 @@ print(widget.iddep);
                                         if (provider.presenceMessage ==
                                             ""){
                                           status = true;
-                                       //   registerPresence();
+                                          registerPresence();
                                           _show(date!);
                                         }
                                       },
@@ -282,7 +269,7 @@ print(widget.iddep);
                       SizedBox(
                         height: 90,
                       ),
-                      /*Container(
+                      Container(
                            width: 250,
                            height: 50,
 
@@ -296,13 +283,10 @@ print(widget.iddep);
                             child: Text("Considère-moi présent",
                                 style: TextStyle(fontSize: 20)),
                             onPressed: () {
-                              //Navigator.push(context, MaterialPageRoute(builder: (context)=>CalendarPage()),);
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>CalendarPage(matricule: widget.matricule,)),);
                             },
                           )
-                           ),*/
-                      Container(
-                        child: Image.asset("assets/map.png", scale: 0.5),
-                      )
+                           ),
                     ],
                   ),
                 )),

@@ -29,7 +29,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
 
   Future register() async {
-    var url = "http://192.168.1.10/flutter_login_signup/register.php";
+    var url = "http://192.168.1.8/flutter_login_signup/register.php";
     var response = await http.post(Uri.parse(url), body: {
       "name": name.text,
       "phonenumber": phonenumber.text,
@@ -55,11 +55,11 @@ class _SignupScreenState extends State<SignupScreen> {
       );
     } else {
       print("hiii");
-     /* Navigator.push(
+      Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => PresenceScreen(matricule: matricule.text ,iddep: _depId
             ),
-          ));*/
+          ));
     }
   }
 

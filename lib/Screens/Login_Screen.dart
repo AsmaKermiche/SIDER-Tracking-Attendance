@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:stage/Component/button.dart';
 import 'package:stage/Employee.dart';
 import 'package:stage/Screens/Presence_Screen.dart';
+import 'package:stage/Screens/wrapper.dart';
 import '../constants.dart';
 import 'Home_Screen.dart';
 import 'Register_Screen.dart';
@@ -24,14 +25,14 @@ class _LoginScreenState extends State<LoginScreen> {
   int iddep = 0;
   String matricule = "";
   Future login() async {
-    var url = "http://192.168.1.10/flutter_login_signup/login.php";
+    var url = "http://192.168.1.8/flutter_login_signup/login.php";
     var response = await http.post(Uri.parse(url), body: {
       "phonenumber": phonenumber.text,
       "password": password.text,
     });
     var data = json.decode(response.body);
     if (data == "Success") {
-    //  Navigator.push(context, MaterialPageRoute(builder: (context)=>PresenceScreen(matricule: matricule,iddep: iddep),),);
+     Navigator.push(context, MaterialPageRoute(builder: (context)=>NavBar(matricule: matricule,iddep: iddep),),);
     } else {
       showDialog(
         context: context,
@@ -51,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> fetchIDIDDEP() async {
-    var url = "http://192.168.1.10/flutter_login_signup/iddep.php";
+    var url = "http://192.168.1.8/flutter_login_signup/iddep.php";
 
     var data = {'phonenumber': phonenumber.text};
 
@@ -67,6 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
       }).toList();
       matricule = emp.first.matricule;
       iddep = emp.first.iddep;
+      print(iddep);
     }
     else {
       throw Exception('Failed to load data from Server.');
@@ -158,8 +160,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   child: Text("Se connecter",
                                       style: TextStyle(fontSize: 20)),
                                   onPressed: () {
-                                    login();
                                     fetchIDIDDEP();
+                                    login();
                                   },
 
                                 )),
