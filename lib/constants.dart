@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 const red = const Color(0xFFfa3d3b);
+const pink = const Color(0xFFfad0d1);
 const kTextFieldDecoration = InputDecoration(
   hintText: 'Enter a value',
   hintStyle: TextStyle(color: Colors.black),

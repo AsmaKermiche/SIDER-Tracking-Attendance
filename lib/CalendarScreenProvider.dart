@@ -8,7 +8,7 @@ class CalendarScreenProvider extends ChangeNotifier {
   List<DateTime> dateTimeList =[];
 
   Future<void> fetchDates(String matricule) async {
-    var url = "http://192.168.1.8/flutter_login_signup/date.php";
+    var url = "http://192.168.1.6/flutter_login_signup/date.php";
 
     var data = {'matricule': matricule.toString()};
 

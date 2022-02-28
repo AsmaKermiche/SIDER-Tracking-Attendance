@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   int iddep = 0;
   String matricule = "";
   Future login() async {
-    var url = "http://192.168.1.8/flutter_login_signup/login.php";
+    var url = "http://192.168.1.6/flutter_login_signup/login.php";
     var response = await http.post(Uri.parse(url), body: {
       "phonenumber": phonenumber.text,
       "password": password.text,
@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> fetchIDIDDEP() async {
-    var url = "http://192.168.1.8/flutter_login_signup/iddep.php";
+    var url = "http://192.168.1.6/flutter_login_signup/iddep.php";
 
     var data = {'phonenumber': phonenumber.text};
 
@@ -164,37 +164,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     login();
                                   },
 
-                                )),
-                            SizedBox(height: 30),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => SignupScreen(),
-                                  ),
-                                );
-                              },
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "Besoin d'un compte?",
-                                    style: TextStyle(
-                                        fontSize: 20, color: Colors.black87),
-                                  ),
-                                  SizedBox(width: 10),
-                                  Hero(
-                                    tag: '3',
-                                                                      child: Text(
-                                      "S'inscrire",
-                                      style: TextStyle(
-                                          fontSize: 21,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
+                                ))
+
                           ],
                         ),
                       ),

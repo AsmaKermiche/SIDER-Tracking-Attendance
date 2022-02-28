@@ -29,7 +29,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
 
   Future register() async {
-    var url = "http://192.168.1.8/flutter_login_signup/register.php";
+    var url = "http://192.168.1.6/flutter_login_signup/register.php";
     var response = await http.post(Uri.parse(url), body: {
       "name": name.text,
       "phonenumber": phonenumber.text,

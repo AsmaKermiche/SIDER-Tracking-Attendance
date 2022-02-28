@@ -6,7 +6,7 @@ class HomeScreenProvider extends ChangeNotifier{
   int _testQR = 0;
 
   void checkPresence(double distance){
-    if(distance > 2.5)
+    if(distance > 10.5)
       notPresent();
     else
       Present();
@@ -20,7 +20,7 @@ class HomeScreenProvider extends ChangeNotifier{
 
 
   void notPresent(){
-    _presenceMessage = "Vous n'êtes pas dans votre département";
+    _presenceMessage = "Vous n'êtes pas dans les alentours de votre département";
     _isPresent = 2;
     notifyListeners();
   }

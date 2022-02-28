@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stage/Screens/Home_Screen.dart';
+import 'package:stage/Screens/Login_Screen.dart';
 import 'package:stage/Screens/Presence_Screen.dart';
 import 'package:stage/Screens/Register_Screen.dart';
 import 'package:stage/Screens/wrapper.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: IDDEP(),
-      home: NavBar(),
+      home: LoginScreen(),
 
     );
   }

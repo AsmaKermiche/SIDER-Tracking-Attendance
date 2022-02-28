@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:stage/Screens/Calendar_Screen.dart';
 import 'package:stage/Screens/Presence_Screen.dart';
+
+import '../constants.dart';
 
 class NavBar extends StatefulWidget {
   final int? iddep;
@@ -20,24 +23,20 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     final _widgetList = [
       PresenceScreen(matricule: widget.matricule, iddep: widget.iddep),
-      Text('Products Page', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-      Text('Cart Page', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+      CalendarPage(matricule: widget.matricule),
     ];
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Flutter Bottom Navigation'),
-      ),
       body: Container(
           child: Center(
               child: _widgetList.elementAt(_selectedIndex) // here we show all screen's content
           )
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: pink,
         //here create all navigation items
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
-          BottomNavigationBarItem(icon: Icon(Icons.list), title: Text('Products')),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), title: Text('Cart')),
+          BottomNavigationBarItem(icon: Icon(Icons.check,color:red), title: Text('Check-in',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)),
+          BottomNavigationBarItem(icon: Icon(Icons.calendar_today,color: red,), title: Text('Calendrier',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)),
         ],
         currentIndex: _selectedIndex,
         onTap: _navigateFunction,
